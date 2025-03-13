@@ -30,14 +30,18 @@
             font-size: 1.2em;
             font-weight: bold;
         }
-        label {
-            display: block;
-            margin-top: 15px;
-            font-size: 1.1em;
+        .result p {
+            padding: 10px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            margin: 5px;
         }
-        h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
+        .profit-box {
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px;
         }
         .footer {
             margin-top: 30px;
@@ -88,12 +92,12 @@
             <p>Total omsætning: DKK <span id="totalRevenue">127.600</span></p>
             <p>Overskudsgrad pr. produkt: <span id="profitMargin">35</span>%</p>
             <p>Break-even ROAS: <span id="breakEvenROAS">2.86</span>x</p>
-            <p>Månedligt overskud: DKK <span id="monthlyProfit">660</span></p>
+            <p id="monthlyProfitBox" class="profit-box">Månedligt overskud: DKK <span id="monthlyProfit">660</span></p>
         </div>
     </div>
     
     <div class="footer">
-        <button onclick="window.location.href='https://www.linkedin.com/in/andreas-noah-m%C3%B8lle-jensen/'">
+        <button onclick="window.open('https://www.linkedin.com/in/andreas-noah-m%C3%B8lle-jensen/', '_blank')">
             <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">LinkedIn
         </button>
         <button onclick="window.location.href='mailto:anj@lazzaweb.dk'">
@@ -118,6 +122,9 @@
             document.getElementById("profitMargin").innerText = grossMargin;
             document.getElementById("breakEvenROAS").innerText = breakEvenROAS;
             document.getElementById("monthlyProfit").innerText = parseFloat(monthlyProfit).toLocaleString("da-DK", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            
+            let profitBox = document.getElementById("monthlyProfitBox");
+            profitBox.style.backgroundColor = monthlyProfit >= 1 ? "#28a745" : "#dc3545";
         }
     </script>
 </body>
