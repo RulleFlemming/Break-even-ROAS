@@ -94,6 +94,7 @@
             <p>Break-even ROAS: <span id="breakEvenROAS">2.86</span>x</p>
             <p id="monthlyProfitBox" class="profit-box">Månedligt overskud: DKK <span id="monthlyProfit">660</span></p>
         </div>
+        <button onclick="setExample()">Vis Eksempel</button>
     </div>
     
     <div class="footer">
@@ -125,6 +126,13 @@
             
             let profitBox = document.getElementById("monthlyProfitBox");
             profitBox.style.backgroundColor = monthlyProfit >= 1 ? "#28a745" : "#dc3545";
+        }
+        
+        function setExample() {
+            document.getElementById("grossMargin").value = 45;
+            document.getElementById("adSpend").value = 60000;
+            document.getElementById("roas").value = 3.2;
+            updateValues();
         }
     </script>
 </body>
