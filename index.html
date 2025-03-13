@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break-even ROAS lommeregner</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #447aaf;
+            color: #ffffff;
+            text-align: center;
+            margin: 40px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        input[type=range] {
+            width: 100%;
+            margin: 10px 0;
+            accent-color: #f8b400;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ROAS Calculator</h2>
+        <label>Gross Margin (%): <span id="grossMarginValue">35</span>%</label>
+        <input type="range" id="grossMargin" min="10" max="90" value="35" step="1" oninput="updateValues()">
+        
+        <label>Ad Spend (DKK): <span id="adSpendValue">44.000</span></label>
+        <input type="range" id="adSpend" min="1000" max="100000" value="44000" step="1000" oninput="updateValues()">
+        
+        <label>ROAS Target (x): <span id="roasValue">2.9</span></label>
+        <input type="range" id="roas" min="1.0" max="10.0" value="2.9" step="0.1" oninput="updateValues()">
+        
+        <div class="result">
+            <p>Total Revenue: DKK <span id="totalRevenue">127.600</span></p>
+            <p>Profit Margin Per Order: <span id="profitMargin">35</span>%</p>
+            <p>Break-even ROAS: <span id="breakEvenROAS">2.86</span>x</p>
+            <p>Monthly Profit: DKK <span id="monthlyProfit">660</span></p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Har du ændringer eller ønsker til lommeregneren? Kontakt Andreas.
+    </div>
+    
+    <script>
+        function updateValues() {
+            let grossMargin = parseFloat(document.getElementById("grossMargin").value);
+            let adSpend = parseFloat(document.getElementById("adSpend").value);
+            let roas = parseFloat(document.getElementById("roas").value);
+            
+            let totalRevenue = adSpend * roas;
+            let breakEvenROAS = (1 / (grossMargin / 100)).toFixed(2);
+            let monthlyProfit = (totalRevenue * (grossMargin / 100) - adSpend).toFixed(2);
+            
+            document.getElementById("grossMarginValue").innerText = grossMargin;
+            document.getElementById("adSpendValue").innerText = adSpend.toLocaleString("da-DK");
+            document.getElementById("roasValue").innerText = roas;
+            document.getElementById("totalRevenue").innerText = totalRevenue.toLocaleString("da-DK");
+            document.getElementById("profitMargin").innerText = grossMargin;
+            document.getElementById("breakEvenROAS").innerText = breakEvenROAS;
+            document.getElementById("monthlyProfit").innerText = monthlyProfit.toLocaleString("da-DK");
+        }
+    </script>
+</body>
+</html>
