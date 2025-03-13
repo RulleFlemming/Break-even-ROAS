@@ -94,7 +94,7 @@
             <p>Break-even ROAS: <span id="breakEvenROAS">2.86</span>x</p>
             <p id="monthlyProfitBox" class="profit-box">Månedligt overskud: DKK <span id="monthlyProfit">660</span></p>
         </div>
-        <button onclick="setExample()">Vis Eksempel</button>
+        <button onclick="setExample()">Vis eksempel</button>
     </div>
     
     <div class="footer">
@@ -122,7 +122,7 @@
             document.getElementById("totalRevenue").innerText = totalRevenue.toLocaleString("da-DK");
             document.getElementById("profitMargin").innerText = grossMargin;
             document.getElementById("breakEvenROAS").innerText = breakEvenROAS;
-            document.getElementById("monthlyProfit").innerText = parseFloat(monthlyProfit).toLocaleString("da-DK", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById("monthlyProfit").innerText = parseFloat(monthlyProfit).toLocaleString("da-DK");
             
             let profitBox = document.getElementById("monthlyProfitBox");
             profitBox.style.backgroundColor = monthlyProfit >= 1 ? "#28a745" : "#dc3545";
