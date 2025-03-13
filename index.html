@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Break-even ROAS lommeregner</title>
+    <title>ROAS Calculator</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -45,8 +45,21 @@
             font-weight: bold;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.3);
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
+        }
+        .footer button {
+            background-color: #f8b400;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .footer button:hover {
+            background-color: #ffcc33;
         }
     </style>
 </head>
@@ -71,7 +84,9 @@
     </div>
     
     <div class="footer">
-        Har du ændringer eller ønsker til lommeregneren? Kontakt Andreas.
+        <p>Kontakt mig</p>
+        <button onclick="window.location.href='https://www.linkedin.com/in/andreas-noah-m%C3%B8lle-jensen/'">LinkedIn</button>
+        <button onclick="window.location.href='mailto:anj@lazzaweb.dk'">Email</button>
     </div>
     
     <script>
@@ -90,7 +105,7 @@
             document.getElementById("totalRevenue").innerText = totalRevenue.toLocaleString("da-DK");
             document.getElementById("profitMargin").innerText = grossMargin;
             document.getElementById("breakEvenROAS").innerText = breakEvenROAS;
-            document.getElementById("monthlyProfit").innerText = monthlyProfit.toLocaleString("da-DK");
+            document.getElementById("monthlyProfit").innerText = parseFloat(monthlyProfit).toLocaleString("da-DK", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
     </script>
 </body>
