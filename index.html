@@ -47,46 +47,58 @@
             background: rgba(0, 0, 0, 0.3);
             padding: 15px;
             border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
         .footer button {
             background-color: #f8b400;
             color: #000;
             border: none;
             padding: 10px 20px;
-            margin: 5px;
             border-radius: 5px;
             font-size: 1em;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .footer button:hover {
             background-color: #ffcc33;
+        }
+        .footer button img {
+            width: 20px;
+            height: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>ROAS Calculator</h2>
-        <label>Gross Margin (%): <span id="grossMarginValue">35</span>%</label>
+        <h2>ROAS Break-even beregner</h2>
+        <label>Dækningsbidrag (%): <span id="grossMarginValue">35</span>%</label>
         <input type="range" id="grossMargin" min="10" max="90" value="35" step="1" oninput="updateValues()">
         
-        <label>Ad Spend (DKK): <span id="adSpendValue">44.000</span></label>
+        <label>Spend (DKK): <span id="adSpendValue">44.000</span></label>
         <input type="range" id="adSpend" min="1000" max="100000" value="44000" step="1000" oninput="updateValues()">
         
-        <label>ROAS Target (x): <span id="roasValue">2.9</span></label>
+        <label>ROAS mål (x): <span id="roasValue">2.9</span></label>
         <input type="range" id="roas" min="1.0" max="10.0" value="2.9" step="0.1" oninput="updateValues()">
         
         <div class="result">
-            <p>Total Revenue: DKK <span id="totalRevenue">127.600</span></p>
-            <p>Profit Margin Per Order: <span id="profitMargin">35</span>%</p>
+            <p>Total omsætning: DKK <span id="totalRevenue">127.600</span></p>
+            <p>Overskudsgrad pr. produkt: <span id="profitMargin">35</span>%</p>
             <p>Break-even ROAS: <span id="breakEvenROAS">2.86</span>x</p>
-            <p>Monthly Profit: DKK <span id="monthlyProfit">660</span></p>
+            <p>Månedligt overskud: DKK <span id="monthlyProfit">660</span></p>
         </div>
     </div>
     
     <div class="footer">
-        <p>Kontakt mig</p>
-        <button onclick="window.location.href='https://www.linkedin.com/in/andreas-noah-m%C3%B8lle-jensen/'">LinkedIn</button>
-        <button onclick="window.location.href='mailto:anj@lazzaweb.dk'">Email</button>
+        <button onclick="window.location.href='https://www.linkedin.com/in/andreas-noah-m%C3%B8lle-jensen/'">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">LinkedIn
+        </button>
+        <button onclick="window.location.href='mailto:anj@lazzaweb.dk'">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">Email
+        </button>
     </div>
     
     <script>
